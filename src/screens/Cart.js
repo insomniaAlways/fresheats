@@ -26,7 +26,7 @@ export default function App() {
             }}>
             <Text style={{fontSize: 16}}>-</Text>
           </View>
-          <Text style={{fontSize: 16}}>1</Text>
+          <Text style={{fontSize: 16, color: 'green', fontWeight: '500'}}>1</Text>
           <View style={{
               flexDirection: 'row',
               justifyContent: 'center',
@@ -36,7 +36,7 @@ export default function App() {
               width: 18,
               paddingLeft: 7
             }}>
-            <Text>+</Text>
+            <Text style={{color: 'green'}}>+</Text>
           </View>
         </View>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: 10}}>
@@ -47,7 +47,7 @@ export default function App() {
   );
   return (
     <View style={styles.container}>
-      <View style={{flex:3, justifyContent: 'flex-start', padding: 20, paddingBottom: 0, backgroundColor: '#fff'}}>
+      <View style={{flex:3, justifyContent: 'flex-start', padding: 20, paddingBottom: 10, backgroundColor: '#fff'}}>
         <Text style={{fontSize: 20, fontWeight: '500', marginBottom: 10, borderBottomColor: '#eee', borderBottomWidth: 1}}>Added Items</Text>
         {itemList}
         {itemList}
@@ -55,7 +55,7 @@ export default function App() {
         {itemList}
         {itemList}
       </View>
-      <View style={{flex: 2,padding: 20, paddingBottom: 0, backgroundColor: '#fff', marginTop: 10}}>
+      <View style={{flex: 2,padding: 20, paddingBottom: 0, backgroundColor: '#fff', marginTop: 20}}>
         <Text style={{fontSize: 20, fontWeight: '500'}}>Bill Details</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
           <Text style={{fontSize: 16}}>Item Total</Text>
