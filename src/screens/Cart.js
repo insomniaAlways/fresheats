@@ -22,7 +22,7 @@ export default function App() {
               borderRightColor: 'grey',
               borderRightWidth: 1,
               width: 18,
-              paddingRight: 6
+              paddingRight: 10
             }}>
             <Text style={{fontSize: 16}}>-</Text>
           </View>
@@ -34,7 +34,7 @@ export default function App() {
               borderLeftColor: 'grey',
               borderLeftWidth: 1,
               width: 18,
-              paddingLeft: 7
+              paddingLeft: 10
             }}>
             <Text style={{color: 'green'}}>+</Text>
           </View>
@@ -47,15 +47,14 @@ export default function App() {
   );
   return (
     <View style={styles.container}>
-      <View style={{flex:3, justifyContent: 'flex-start', padding: 20, paddingBottom: 10, backgroundColor: '#fff'}}>
-        <Text style={{fontSize: 20, fontWeight: '500', marginBottom: 10, borderBottomColor: '#eee', borderBottomWidth: 1}}>Added Items</Text>
-        {itemList}
+      <View style={{justifyContent: 'flex-start', padding: 20, paddingBottom: 10, backgroundColor: '#fff'}}>
+        <Text style={{fontSize: 20, fontWeight: '500', marginBottom: 10, borderBottomColor: '#eee', borderBottomWidth: 1, paddingBottom: 10}}>Added Items</Text>
         {itemList}
         {itemList}
         {itemList}
         {itemList}
       </View>
-      <View style={{flex: 2,padding: 20, paddingBottom: 0, backgroundColor: '#fff', marginTop: 20}}>
+      <View style={{padding: 20, paddingBottom: 0, backgroundColor: '#fff', marginTop: 20, paddingBottom: 20}}>
         <Text style={{fontSize: 20, fontWeight: '500'}}>Bill Details</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
           <Text style={{fontSize: 16}}>Item Total</Text>
@@ -71,10 +70,7 @@ export default function App() {
           <Text style={{fontWeight: '500', fontSize: 16}}>$123</Text>
         </View>
       </View>
-      <View style={{flex: 3}}>
-
-      </View>
-      <View style={{flex:1, justifyContent: 'center', backgroundColor: '#fff', alignItems: 'center', backgroundColor: "#4CA3DA"}}>
+      <View style={{justifyContent: 'center', backgroundColor: '#fff', alignItems: 'center', backgroundColor: "#4CA3DA", height: 60, bottom: 0, position: 'absolute', width: '100%'}}>
         <Text style={{fontWeight: '500', fontSize: 20, color: '#fff'}}>Select Address</Text>
       </View>
     </View>
