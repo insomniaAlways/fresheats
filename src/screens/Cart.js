@@ -90,6 +90,5 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop:24,
     backgroundColor: '#eee'
-  },
-  
+  }
 });
