@@ -1,17 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ItemList from './src/screens/Restaurants/ItemList';
+// import React from 'react';
+// import { StyleSheet, Text, View } from 'react-native';
 import RestaurantList from './src/screens/Restaurants/RestaurantList';
+import Home from './src/screens/Restaurants/Index';
+import ItemList from './src/screens/Restaurants/ItemList';
 
-export default function App() {
-  return <RestaurantList />
-}
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const MainNavigator = createStackNavigator({
+    Home: { screen: Home },
+    Restaurants: { screen: RestaurantList },
+    ItemList: { screen: ItemList },
   },
-});
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#47d9a8',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }
+  }
+);
+
+const App = createAppContainer(MainNavigator);
+
+export default App;

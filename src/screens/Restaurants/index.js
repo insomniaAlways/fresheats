@@ -1,22 +1,27 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import Image1 from "./../../../assets/images/test.jpg";
 
-export default function App() {
+export default function Home(props) {
   let value=''
+  const { navigate } = props.navigation;
   let categories = (
-    <View style={{borderRadius: 50, borderColor: '#eee', borderWidth: 2, width: 60, height: 60, borderStyle:'solid', flexDirection: 'row', justifyContent:'center', alignItems: 'center'}}>
-      <Text>1</Text>
-    </View>
+    <TouchableOpacity onPress={() => navigate('Restaurants')}>
+      <View style={{borderRadius: 50, borderColor: '#eee', borderWidth: 2, width: 60, height: 60, borderStyle:'solid', flexDirection: 'row', justifyContent:'center', alignItems: 'center'}}>
+        <Text>1</Text>
+      </View>
+    </TouchableOpacity>
   )
   let item = (
-    <ImageBackground source={Image1} imageStyle={{ borderRadius: 20 }} style={{width: 370, height: '100%', marginRight: 10}}>
-      <View style={{backgroundColor: '#fff', top: 90, paddingLeft: 15, paddingBottom: 10, paddingTop: 10}}>
-        <Text style={{fontSize: 20, fontWeight: '500'}}>Chicken & Chicks</Text>
-        <Text>Chicken & Chicks</Text>
-        <Text>Chicken & Chicks</Text>
-      </View>
-    </ImageBackground>
+    <TouchableOpacity onPress={() => navigate('ItemList')}>
+      <ImageBackground source={Image1} imageStyle={{ borderRadius: 20 }} style={{width: 350, height: '100%', marginRight: 10, justifyContent: 'flex-end'}}>
+        <View style={{backgroundColor: '#fff', paddingLeft: 15, paddingBottom: 10, paddingTop: 10, marginBottom: 10}}>
+          <Text style={{fontSize: 14, fontWeight: '500'}}>Chicken & Chicks</Text>
+          <Text>Chicken & Chicks</Text>
+          <Text>Chicken & Chicks</Text>
+        </View>
+      </ImageBackground>
+    </TouchableOpacity>
   )
   let itemList = (
     <ScrollView horizontal={true}>
@@ -29,7 +34,7 @@ export default function App() {
   )
   return (
     <View style={styles.container}>
-      <View style={{flex:1, paddingtop: 20, paddingLeft: 20, paddingRight: 20, paddingBottom: 10, marginTop: 10}}>
+      <View style={{flex:1, paddingTop: 5, paddingLeft: 20, paddingRight: 20, paddingBottom: 10}}>
         <TextInput
           style={{ height: 40, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderBottomColor: '#eee', borderWidth: 1 }}
           placeholder='Search'
@@ -37,7 +42,7 @@ export default function App() {
           value={value}
         />
       </View>
-      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', paddingtop: 10, paddingLeft: 20, paddingRight: 20, paddingBottom: 10}}>
+      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', paddingTop: 5, paddingLeft: 20, paddingRight: 20, paddingBottom: 15}}>
         {categories}
         {categories}
         {categories}
@@ -65,7 +70,17 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginTop:24
+    marginTop:10
   },
-  
 });
+
+Home.navigationOptions = ({ navigation }) => ({
+  title: 'Home',
+  // headerStyle: {
+  //   backgroundColor: '#f4511e',
+  // },
+  // headerTintColor: '#fff',
+  // headerTitleStyle: {
+  //   fontWeight: 'bold',
+  // }
+})
