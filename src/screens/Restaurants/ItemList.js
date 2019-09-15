@@ -1,31 +1,29 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, FlatList } from 'react-native';
 import Image1 from "./../../../assets/images/test.jpg";
+import { Button } from 'react-native-elements';
 
 export default function App() {
   let value=''
-  let categories = (
-    <View style={{borderRadius: 50, borderColor: '#eee', borderWidth: 2, width: 60, height: 60, borderStyle:'solid', flexDirection: 'row', justifyContent:'center', alignItems: 'center'}}>
-      <Text>1</Text>
-    </View>
-  )
   let item = (
-    <ImageBackground source={Image1} imageStyle={{ borderRadius: 20 }} style={{width: 370, height: '100%', marginRight: 10}}>
-      <View style={{backgroundColor: '#fff', top: 90, paddingLeft: 15, paddingBottom: 10, paddingTop: 10}}>
-        <Text style={{fontSize: 20, fontWeight: '500'}}>Chicken & Chicks</Text>
-        <Text>Chicken & Chicks</Text>
-        <Text>Chicken & Chicks</Text>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: '#eee', borderBottomWidth: 1}}>
+      <View style={{flex: 1, margin: 10}}>
+        <Image
+            style={{width: '100%', height: 100}}
+            source={Image1}
+        />
       </View>
-    </ImageBackground>
-  )
-  let itemList = (
-    <ScrollView horizontal={true}>
-      {item}
-      {item}
-      {item}
-      {item}
-      {item}
-    </ScrollView>
+      <View style={{flex: 3, margin: 10}}>
+        <View style={{flex: 1, justifyContent: 'flex-start'}}>
+          <Text style={{fontWeight: '500', fontSize: 20}}>High Street</Text>
+          <Text>Loaction</Text>
+          <Text>View more</Text>
+        </View>
+        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+          <Text>Rating: </Text>
+        </View>
+      </View>
+    </View>
   )
   return (
     <View style={styles.container}>
@@ -37,22 +35,23 @@ export default function App() {
           value={value}
         />
       </View>
-      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', paddingtop: 10, paddingLeft: 20, paddingRight: 20, paddingBottom: 10}}>
-        {categories}
-        {categories}
-        {categories}
-        {categories}
-        {categories}
+      <View style={{flex: 1, paddingLeft: 20, paddingTop: 10, paddingRight: 20}}>
+        <Text style={{fontSize: 16, fontWeight: '500'}}>Restaurantes: </Text>
       </View>
-      <View style={{flex: 6, padding: 20}}>
-        <Text style={{fontSize: 20, fontWeight: '500'}}>Top Rated</Text>
-        <Text style={{marginBottom: 10}}>Find out what people love</Text>
-          {itemList}
-      </View>
-      <View style={{flex: 6, paddingLeft: 20, paddingTop: 5, paddingRight: 20, paddingBottom: 20}}>
-        <Text style={{fontSize: 20, fontWeight: '500'}}>Top Rated</Text>
-        <Text style={{marginBottom: 10}}>Find out what people love</Text>
-          {itemList}        
+      <View style={{flex: 16}}>
+        <ScrollView>
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+          {item}
+        </ScrollView>
       </View>
     </View>
   );
@@ -60,12 +59,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
   image: {
-    flex:1,
-    justifyContent: 'space-between'
+    // flex:1,
+    // justifyContent: 'space-between'
   },
   container: {
     flex: 1,
     marginTop:24
   },
-  
+  borderView: {
+    borderWidth: 1,
+    borderColor: 'black'
+  }
 });
