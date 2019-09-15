@@ -38,9 +38,9 @@ export default function Restaurants(props) {
           value={value}
         />
       </View>
-      <View style={{flex: 1, paddingLeft: 20, paddingTop: 10, paddingRight: 20}}>
-        <Text style={{fontSize: 16, fontWeight: '500'}}>Restaurantes: </Text>
-      </View>
+      {/* <View style={{flex: 1, paddingLeft: 20, paddingTop: 10, paddingRight: 20}}>
+        <Text style={{fontSize: 16, fontWeight: '500'}}>Restaurants: </Text>
+      </View> */}
       <View style={{flex: 16}}>
         <ScrollView>
           {item}
