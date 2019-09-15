@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import LandingScreen from './src/Landing';
-import Cart from './src/screens/Cart';
+import Restaurants from './src/screens/Restaurants/index';
 
 export default function App() {
-  return <Cart />
+  return <Restaurants />
 }
 
 const styles = StyleSheet.create({

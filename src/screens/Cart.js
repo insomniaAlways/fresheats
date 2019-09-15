@@ -5,8 +5,9 @@ export default function App() {
   let itemList = (
     <View style={{marginBottom: 10}}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flex: 5}}>
-          <Text style={{fontSize: 16, fontWeight: '500'}}>Hello</Text>
+        <View style={{flex: 5, flexDirection: 'row'}}>
+          <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 16, fontWeight: '500', width: '70%'}}>Hello</Text>
+          <Text>(500gm)</Text>
         </View>
         <View style={{ 
             flex: 2,
