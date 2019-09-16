@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, ScrollView, TextInput } from 'react-native';
 import ItemView from '../../components/item';
 
-export default function ItemsList() {
+export default function ItemsList(props) {
   let value=''
   
   return (
@@ -53,5 +53,5 @@ const styles = StyleSheet.create({
 });
 
 ItemsList.navigationOptions = ({ navigation }) => ({
-  title: 'Items List'
+  title: navigation.getParam('restaurantName', 'Items')
 })
