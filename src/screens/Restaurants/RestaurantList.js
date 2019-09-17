@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   }
 });
 
-Restaurants.navigationOptions = () => ({
-  title: 'Restaurants',
-})
+// Restaurants.navigationOptions = () => ({
+//   title: 'Restaurants',
+// })
 

@@ -1,17 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import Image1 from "./../../../assets/images/test.jpg";
+import CategoryCircle from '../../components/category-circle';
 
 export default function Home(props) {
   let value=''
   const { navigate } = props.navigation;
-  let categories = (
-    <TouchableOpacity onPress={() => navigate('Restaurants')}>
-      <View style={{borderRadius: 50, borderColor: '#eee', borderWidth: 2, width: 60, height: 60, borderStyle:'solid', flexDirection: 'row', justifyContent:'center', alignItems: 'center'}}>
-        <Text>1</Text>
-      </View>
-    </TouchableOpacity>
-  )
+
   let item = (
     <TouchableOpacity onPress={() => navigate('ItemList')}>
       <ImageBackground source={Image1} imageStyle={{ borderRadius: 20 }} style={{width: 350, height: '100%', marginRight: 10, justifyContent: 'flex-end'}}>
@@ -43,11 +38,11 @@ export default function Home(props) {
         />
       </View>
       <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', paddingTop: 5, paddingLeft: 20, paddingRight: 20, paddingBottom: 15}}>
-        {categories}
-        {categories}
-        {categories}
-        {categories}
-        {categories}
+        <CategoryCircle name={"hamburger"} navigate={navigate}/>
+        <CategoryCircle name={"pizza-slice"} navigate={navigate}/>
+        <CategoryCircle name={"rocket"} navigate={navigate}/>
+        <CategoryCircle name={"rocket"} navigate={navigate}/>
+        <CategoryCircle name={"rocket"} navigate={navigate}/>
       </View>
       <View style={{flex: 6, padding: 20}}>
         <Text style={{fontSize: 20, fontWeight: '500'}}>Top Rated</Text>
@@ -74,13 +69,5 @@ const styles = StyleSheet.create({
   },
 });
 
-Home.navigationOptions = ({ navigation }) => ({
-  title: 'Home',
-  // headerStyle: {
-  //   backgroundColor: '#f4511e',
-  // },
-  // headerTintColor: '#fff',
-  // headerTitleStyle: {
-  //   fontWeight: 'bold',
-  // }
-})
+// Home.navigationOptions = ({ navigation }) => {
+// }
