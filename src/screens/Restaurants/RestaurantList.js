@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, TextInput } from 'react-native';
-import RestaurantView from './../../components/restaurant';
+import RestaurantView from '../../components/restaurant';
 
 export default function Restaurants(props) {
   let value=''

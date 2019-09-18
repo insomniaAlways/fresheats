@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import Image1 from "./../../../assets/images/test.jpg";
 import CategoryCircle from '../../components/category-circle';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Home(props) {
   let value=''
@@ -69,5 +70,15 @@ const styles = StyleSheet.create({
   },
 });
 
-// Home.navigationOptions = ({ navigation }) => {
-// }
+Home.navigationOptions = ({ navigation }) => ({
+  headerRight: (
+    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: 10, marginRight: 15}}>
+      <View style={{marginRight: 10}}>
+        <Icon name="cart-plus" size={23} color="#fff" />
+      </View>
+      <View style={{marginLeft: 10}}>
+        <Icon name="ellipsis-v" size={23} color="#fff" />
+      </View>
+    </View>
+  )
+})
