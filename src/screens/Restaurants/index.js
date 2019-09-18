@@ -73,9 +73,11 @@ const styles = StyleSheet.create({
 Home.navigationOptions = ({ navigation }) => ({
   headerRight: (
     <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: 10, marginRight: 15}}>
-      <View style={{marginRight: 10}}>
-        <Icon name="cart-plus" size={23} color="#fff" />
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <View style={{marginRight: 10}}>
+          <Icon name="cart-plus" size={23} color="#fff" />
+        </View>
+      </TouchableOpacity>
       <View style={{marginLeft: 10}}>
         <Icon name="ellipsis-v" size={23} color="#fff" />
       </View>
