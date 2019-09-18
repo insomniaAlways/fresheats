@@ -1,9 +1,11 @@
-import React from 'react';
-import { StyleSheet, View, ScrollView, TextInput, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, ScrollView, TextInput, Text, Modal } from 'react-native';
 import RestaurantView from '../../components/restaurant';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Restaurants(props) {
+  const [ openModal, toggleModal ] = useState(false)
+
   let value=''
   
   return (
@@ -35,6 +37,18 @@ export default function Restaurants(props) {
           <RestaurantView navigation = {props.navigation}/>
         </ScrollView>
       </View>
+      <Modal visible={openModal}>
+        <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight
+                onPress={toggleModal(false)}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+      </Modal>
     </View>
   );
 }
