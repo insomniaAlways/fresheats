@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground, ScrollView, TextInput, TouchableOpacity, Button } from 'react-native';
 import Image1 from "./../../../assets/images/test.jpg";
 import CategoryCircle from '../../components/category-circle';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -78,9 +78,11 @@ Home.navigationOptions = ({ navigation }) => ({
           <Icon name="cart-plus" size={23} color="#fff" />
         </View>
       </TouchableOpacity>
-      <View style={{marginLeft: 10}}>
-        <Icon name="ellipsis-v" size={23} color="#fff" />
-      </View>
+      <TouchableOpacity onPress={() => navigation.openDrawer()}>
+        <View style={{marginLeft: 10}}>
+          <Icon name="ellipsis-v" size={23} color="#fff" />
+        </View>
+      </TouchableOpacity>
     </View>
   )
 })

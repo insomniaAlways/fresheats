@@ -1,33 +1,16 @@
 import React from 'react';
-import Home from './src/screens/restaurants/Index';
-import RestaurantList from './src/screens/restaurants/RestaurantList';
-import ItemList from './src/screens/restaurants/ItemList';
-import Cart from './src/screens/Cart';
-
+import MainNavigator from './navigations';
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import store from './src/store';
+import { Provider } from 'react-redux';
 
-const MainNavigator = createStackNavigator({
-    Home: { screen: Home },
-    Restaurants: { screen: RestaurantList },
-    ItemList: { screen: ItemList },
-    Cart: { screen: Cart },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      title: navigation.state.routeName,
-      headerStyle: {
-        backgroundColor: '#47d9a8',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        flex: 1
-      }
-    })
-  }
-);
+const Navigation = createAppContainer(MainNavigator);
 
-const App = createAppContainer(MainNavigator);
-
+function App() {
+  return (
+    <Provider store={store}>
+      <Navigation/>
+    </Provider>
+  )
+}
 export default App;
