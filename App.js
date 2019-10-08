@@ -1,10 +1,7 @@
 import React from 'react';
-import MainNavigator from './navigations';
-import {createAppContainer} from 'react-navigation';
 import store from './src/store';
 import { Provider } from 'react-redux';
-
-const Navigation = createAppContainer(MainNavigator);
+import Navigation from './navigations';
 
 function App() {
   return (
