@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import ProfilePic from '../../../assets/images/profile-pic.jpg'
 import { Accordion } from 'native-base';
 import AddressCard from '../../components/addressCard';
 import PaymentOptions from '../../components/paymentOptions';
+import { connect } from 'react-redux';
+import { set_authentication } from '../../store/actions/authentications';
 
 function User(props) {
   const accordionArray = [{ title: 'Address' },{ title: 'Payment Options' }]
@@ -23,6 +25,12 @@ function User(props) {
       content = <PaymentOptions />
     }
     return content
+  }
+
+  const logout = async () => {
+    props.setAuthentication(false)
+    await AsyncStorage.clear();
+    props.navigation.navigate('Auth');
   }
 
   const accordionHeader = (item, expanded) => {
@@ -61,7 +69,7 @@ function User(props) {
                 renderContent={accordionContent}
                 style={{borderColor: null, borderWidth: 0}}
               />
-              <TouchableOpacity onPress={() => alert('Log out')}>
+              <TouchableOpacity onPress={() => logout()}>
                 <View style={[styles.alignRow, styles.menus]}>
                   <Text style={{fontSize: 16}}>Log out</Text>
                 </View>
@@ -116,4 +124,10 @@ User.navigationOptions = ({ navigation }) => ({
     </View>
   )
 })
-export default User;
+const mapStateToProps = state => state;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setAuthentication: (isAuthenticated) => dispatch(set_authentication(isAuthenticated))    
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(User);

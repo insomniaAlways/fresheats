@@ -10,6 +10,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import Login from './src/screens/Authentication/Login';
+import AuthLoadingScreen from './src/screens/Authentication/AuthLoadingScreen';
 
 const AppStack = createStackNavigator(
   {
@@ -41,12 +42,12 @@ const AuthStack = createStackNavigator({ Login: Login }, { headerMode: 'none'});
 const Navigation = createAppContainer(
   createSwitchNavigator(
     {
-      // AuthLoading: AuthLoadingScreen,
-      App: AppStack,
+      AuthLoading: AuthLoadingScreen,
+      App: DrawerNavigator,
       Auth: AuthStack,
     },
     {
-      initialRouteName: 'Auth',
+      initialRouteName: 'AuthLoading',
     }
   )
 );
